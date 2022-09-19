@@ -8,15 +8,30 @@ import { Provider } from "react-redux";
 import reducerList from "./reducers";
 import thunk from "redux-thunk";
 import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material/styles"
 
 const store = createStore(reducerList, applyMiddleware(thunk));
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const theme = createTheme({
+    typography: {
+        fontFamily: [
+          'Poppins',
+          'sans-serif',
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+        ].join(','),
+    }
+});
 
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+        <ThemeProvider theme={theme}>
+            <App />
+        </ThemeProvider>
     </BrowserRouter>
   </Provider>
   // </React.StrictMode>
