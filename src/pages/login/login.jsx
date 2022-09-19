@@ -13,6 +13,8 @@ import { useNavigate } from "react-router-dom";
 
 import { loginWithEmail } from "../../actions/auth.js";
 
+import QuestionStepper from "../../components/QuestionStepper.jsx";
+
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -52,7 +54,7 @@ export default function Login() {
           maxWidth={500}
         >
           <Grid container spacing={2}>
-            <Grid item md={12} lg={12}>
+            <Grid item xs={12} md={12} lg={12}>
               <TextField
                 value={data.email}
                 type="email"
@@ -64,7 +66,7 @@ export default function Login() {
                 size="small"
               />
             </Grid>
-            <Grid item md={12} lg={12}>
+            <Grid item xs={12} md={12} lg={12}>
               <TextField
                 value={data.password}
                 type="password"
@@ -76,7 +78,7 @@ export default function Login() {
                 size="small"
               />
             </Grid>
-            <Grid item md={12} lg={12}>
+            <Grid item xs={12} md={12} lg={12}>
               <Grid container justifyContent="space-between">
                 <Button
                   variant="contained"
@@ -95,6 +97,8 @@ export default function Login() {
           </Grid>
         </Box>
       </Paper>
+      <br/>
+      <QuestionStepper />
     </Box>
   );
 }

@@ -49,7 +49,7 @@ export default function ForgetPassword() {
     dispatch({ type: "SUSPENSE" });
     try {
       const res = await resetPassword(data.email, data.otp, data.newPassword);
-      
+      // dispatch({ type: "SUSPENSE" });
     } catch (error) {
       const res = error.response?.data;
       dispatch({ type: "ERROR", payload: res?.error || error.message });
@@ -84,7 +84,7 @@ export default function ForgetPassword() {
           maxWidth={500}
         >
           <Grid container spacing={2}>
-            <Grid item md={12} lg={12}>
+            <Grid item xs={12} md={12}  lg={12}>
               <TextField
                 value={data.email}
                 type="email"
@@ -97,7 +97,7 @@ export default function ForgetPassword() {
               />
             </Grid>
             
-            <Grid item md={12} lg={12}>
+            <Grid item xs={12} md={12}  lg={12}>
                 <Button color="primary" type="submit" variant="contained">
                   Submit
                 </Button>
@@ -112,7 +112,7 @@ export default function ForgetPassword() {
           maxWidth={500}
         >
           <Grid container spacing={2}>
-            <Grid item md={12} lg={12}>
+            <Grid item xs={12} md={12}  lg={12}>
               <TextField
                 value={data.email}
                 type="email"
@@ -125,7 +125,7 @@ export default function ForgetPassword() {
                 size="small"
               />
             </Grid>
-            <Grid item md={12} lg={12}>
+            <Grid item xs={12} md={12}  lg={12}>
               <TextField
                 value={data.otp}
                 label="OTP"
@@ -136,19 +136,19 @@ export default function ForgetPassword() {
                 size="small"
               />
             </Grid>
-            <Grid item md={12} lg={12}>
+            <Grid item xs={12} md={12}  lg={12}>
               <TextField
-                value={data.password}
+                value={data.newPassword}
                 type="password"
                 label="Password"
                 onChange={handleInputChange}
-                name="password"
+                name="newPassword"
                 required
                 fullWidth
                 size="small"
               />
             </Grid>
-            <Grid item md={12} lg={12}>
+            <Grid item xs={12} md={12}  lg={12}>
                <Grid container justifyContent="space-between">
                 <Button
                   variant="contained"
