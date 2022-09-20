@@ -9,7 +9,7 @@ import {
 import { Alert } from "@mui/material";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import { loginWithEmail } from "../../actions/auth.js";
 
@@ -31,6 +31,7 @@ export default function Login() {
   };
 
   return (
+      isLoggedIn ? <Navigate to="/admin" replace="true" /> :
     <Box
       display="flex"
       justifyContent="center"

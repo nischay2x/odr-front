@@ -1,6 +1,6 @@
 import { auth } from "../config/action-config";
 
-const initialUser = { isLoggedIn: false, suspense: false, err: "", data: {} };
+const initialUser = { isLoggedIn: true, suspense: false, err: "", data: {} };
 
 const userReducer = (user = initialUser, action) => {
   const { payload, type } = action;
