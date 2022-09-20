@@ -1,11 +1,7 @@
 // import "./App.css";
 import {
-  Routes,
-  Route,
-  Navigate,
-  useNavigate,
-  useLocation,
-  Outlet
+  Routes, Route, Navigate,
+  useNavigate, useLocation, Outlet
 } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -13,7 +9,7 @@ import { useEffect, useState } from "react";
 import Login, { ForgetPassword } from "./pages/login";
 import { getUser } from "./actions/auth";
 
-// import { Button, CircularProgress, Typography } from "@mui/material";
+import { Button, Box, CircularProgress, Typography, Link } from "@mui/material";
 
 function App() {
   const dispatch = useDispatch();
@@ -93,7 +89,6 @@ function RequireAdminAuth({ loggedIn, role = "user" }) {
     if (role === "admin") {
       return (
         <>
-          {" "}
           <Outlet />
           {/* <AlertBox />  */}
         </>
@@ -108,49 +103,55 @@ function RequireAdminAuth({ loggedIn, role = "user" }) {
 
 function Nothing() {
   return (
-    <div className="page d-flex">
-      <div className="m-auto text-center">
-        {/* <Typography variant="h3" fontWeight="600"> */}
-        Nothing Here !!!
-        {/* </Typography> */}
-        <br />
-        {/* <Link to="/"> */}
-        {/* <Button variant="contained">Back To Home</Button> */}
-        {/* </Link> */}
-      </div>
-    </div>
+    <Box display="flex" alignItems="center" justifyContent="center" 
+          sx={{width: "100%", height: "100vh"}}
+        >
+        <Box textAlign="center">
+          <Typography variant="h3" fontWeight="600"> 
+            Nothing Here !!!
+          </Typography>
+          <br />
+          <Link to="/">
+            <Button variant="contained">Back To Home</Button>
+          </Link>
+        </Box>
+      </Box>
   );
 }
 
 function AccessDenied() {
   return (
-    <div className="page d-flex">
-      <div className="m-auto text-center">
-        {/* <Typography variant="h3" fontWeight="600"> */}
-        Access Denied !!!
-        {/* </Typography> */}
-        {/* <Typography variant="h6"> */}
-        Only Allowed to Admins.
-        {/* </Typography> */}
-        <br />
-        {/* <Link to="/"> */}
-        {/* <Button variant="contained">Back To Home</Button> */}
-        {/* </Link> */}
-      </div>
-    </div>
+        <Box display="flex" alignItems="center" justifyContent="center" 
+          sx={{width: "100%", height: "100vh"}}
+        >
+        <Box textAlign="center">
+          <Typography variant="h3" fontWeight="600"> 
+            Access Denied !!!
+          </Typography>
+          <Typography variant="h6">
+            Only Allowed to Admins.
+          </Typography>
+          <br />
+          <Link to="/">
+            <Button variant="contained">Back To Home</Button>
+          </Link>
+        </Box>
+      </Box>
   );
 }
 
 function Loading() {
   return (
-    <div className="page d-flex">
-      <div className="m-auto text-center">
-        {/* <Typography variant="h3" fontWeight="600"> */}
-        Logging In ...
-        {/* </Typography> */}
+    <Box display="flex" alignItems="center" justifyContent="center" 
+      sx={{width: "100%", height: "100vh"}}
+    >
+      <Box textAlign="center">
+        <Typography variant="h3" fontWeight="600">
+          Logging In ...
+        </Typography>
         <br />
-        {/* <CircularProgress /> */}
-      </div>
-    </div>
+        <CircularProgress />
+      </Box>
+    </Box>
   );
 }
