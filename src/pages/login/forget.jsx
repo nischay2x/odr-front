@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import { Alert } from "@mui/material";
 import { useState, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { loginWithEmail } from "../../actions/auth.js";
 import { forgetPassword, resetPassword } from "../../api/auth.js";
@@ -25,6 +26,7 @@ const localReducer = (state, action) => {
 const emptyData = { email: "", newPassword: "", otp: "" };
 
 export default function ForgetPassword() {
+    const navigate = useNavigate();
   const [state, dispatch] = useReducer(localReducer, initialState);
 
   const [data, setData] = useState(emptyData);
@@ -98,9 +100,20 @@ export default function ForgetPassword() {
             </Grid>
             
             <Grid item xs={12} md={12}  lg={12}>
+                <Grid container justifyContent="space-between">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => {
+                    navigate("/login", { replace: true })
+                  }}
+                >
+                  Login Instead
+                </Button>
                 <Button color="primary" type="submit" variant="contained">
                   Submit
                 </Button>
+              </Grid>
             </Grid>
           </Grid>
         </Box>
