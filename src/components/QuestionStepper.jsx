@@ -92,9 +92,8 @@ export default function TextMobileStepper() {
         <br/>
         {
             steps[activeStep].multiple ? (
-                <FormGroup sx={{ rowGap: 1, px: 1}}>
+                <FormGroup>
                     { steps[activeStep].options.map((o, i) => <FormControlLabel key={i} 
-                        sx={{columnGap: 1}}
                         control={<Checkbox 
                         onChange={() => { handleAnswerChange(steps[activeStep].id, o, true ) }} />} 
                         label={o} 
@@ -103,7 +102,7 @@ export default function TextMobileStepper() {
                 </FormGroup>
             ) : (
                 <RadioGroup
-                    sx={{ rowGap: 1, px: 1}}
+                    
                     aria-labelledby="demo-radio-buttons-group-label"
                     name="radio-buttons-group"
                     value={answers[steps[activeStep].id]}
@@ -111,7 +110,6 @@ export default function TextMobileStepper() {
                 >
                     {
                         steps[activeStep].options.map((o, i) => <FormControlLabel key={i} 
-                            sx={{columnGap: 1}}
                             control={<Radio/>} 
                             value={o}
                             label={o} 
