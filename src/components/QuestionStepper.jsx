@@ -62,7 +62,6 @@ export default function TextMobileStepper() {
           [id]: newValue
       }))
   }
-  React.useEffect(() => { console.log(answers) }, [answers])
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
