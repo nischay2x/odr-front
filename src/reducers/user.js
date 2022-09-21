@@ -43,6 +43,11 @@ const userReducer = (user = initialUser, action) => {
         err: payload.message,
         data: {}
       };
+      
+    case auth.UPDATE_SUCCESS:  {
+        console.log(action.payload)
+        return { ...user, data: { ...user.data, ...action.payload } }
+    }
 
     case auth.LOGOUT:
       return initialUser;
