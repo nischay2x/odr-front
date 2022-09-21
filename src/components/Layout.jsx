@@ -1,10 +1,11 @@
 import React from 'react'
 
 import {
-  AppBar, Box, Toolbar, ListItem, ListItemButton, ListItemIcon,
-  IconButton, Typography, Button, 
-} from '@material-ui/core'
-import { Logout } from '@mui/icons-material';
+  AppBar, Box, Toolbar, ListItem, ListItemIcon,
+  IconButton, Typography, Button, ListItemText, Link
+} from '@material-ui/core';
+import { ListItemButton } from "@mui/material";
+import { AccountCircle, Logout } from '@mui/icons-material';
 import { makeStyles } from '@material-ui/styles';
 
 const styles = () => ({
@@ -53,7 +54,6 @@ export default function Layout({ children }) {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2, ml: 'auto' }}
           >
             <Logout />
           </IconButton>
@@ -61,9 +61,9 @@ export default function Layout({ children }) {
       </AppBar>
       <div className={classes.container}>
         <Box className={classes.sidebar}>
-
+            <SidebarListItem icon={<AccountCircle/>} text="Profile" href="/profile" />
         </Box>
-        <Box component='main' className={classes.main}>
+        <Box component='main' p={4} className={classes.main}>
           {children}
         </Box>
       </div>
@@ -71,15 +71,17 @@ export default function Layout({ children }) {
   )
 }
 
-function CustomListItem() {
+function SidebarListItem({ icon, text = "Link To", href = "#" }) {
   return (
-    <ListItem disablePadding>
-      <ListItemButton>
-        <ListItemIcon>
-          <DraftsIcon />
-        </ListItemIcon>
-        <ListItemText primary="Drafts" />
-      </ListItemButton>
+    <ListItem style={{paddingLeft: 0, paddingRight: 0}}>
+        <Link href={href} style={{width: "100%", textDecoration: "none", color: "inherit"}}>
+        <ListItemButton>
+            <ListItemIcon>
+                {icon}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+        </ListItemButton>
+        </Link>
     </ListItem>
   )
 }
