@@ -6,7 +6,10 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
+import Layout from "./components/Layout.jsx";
 import Login, { ForgetPassword } from "./pages/login";
+import Profile from "./pages/profile";
+
 import { getUser } from "./actions/auth";
 
 import { Button, Box, CircularProgress, Typography, Link } from "@mui/material";
@@ -61,9 +64,9 @@ function App() {
       </Route>
 
       <Route path="/" element={<RequireAuth loggedIn={isLoggedIn} />}>
-        {/* <Route path="/" element={<Layout><Home /></Layout>}/>
+        {/* <Route path="/" element={<Layout><Home /></Layout>}/> */}
         <Route path="profile" element={<Layout><Profile /></Layout>}/>
-        <Route path="projects/:id" element={<Layout><WorkerProject/></Layout>} /> */}
+        {/* <Route path="projects/:id" element={<Layout><WorkerProject/></Layout>} /> */}
       </Route>
 
       <Route path="*" element={<Nothing />}></Route>

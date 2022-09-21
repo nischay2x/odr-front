@@ -1,6 +1,20 @@
 import { auth } from "../config/action-config";
 
-const initialUser = { isLoggedIn: true, suspense: false, err: "", data: {} };
+let tempUserData = {
+  id: 1,
+  uid: "US2321",
+  email: "some@random.com",
+  phone: "2565154878",
+  firstname: "some",
+  lastname: "smith",
+  address: "5230, Newell Road",
+  address2: "Palo Alto",
+  city: "Palo Alto",
+  state: "CA",
+  country: "USA"
+}
+
+const initialUser = { isLoggedIn: true, suspense: false, err: "", data: tempUserData };
 
 const userReducer = (user = initialUser, action) => {
   const { payload, type } = action;
