@@ -5,7 +5,7 @@ import {
   IconButton, Typography, Button, ListItemText, Link
 } from '@material-ui/core';
 import { ListItemButton } from "@mui/material";
-import { AccountCircle, Logout } from '@mui/icons-material';
+import { AccountCircle, Logout, Groups } from '@mui/icons-material';
 import { makeStyles } from '@material-ui/styles';
 
 const styles = () => ({
@@ -62,6 +62,7 @@ export default function Layout({ children }) {
       <div className={classes.container}>
         <Box className={classes.sidebar}>
             <SidebarListItem icon={<AccountCircle/>} text="Profile" href="/profile" />
+            <SidebarListItem icon={<Groups/>} text="Meetings" href="/meetings" />
         </Box>
         <Box component='main' p={4} className={classes.main}>
           {children}
@@ -73,7 +74,7 @@ export default function Layout({ children }) {
 
 function SidebarListItem({ icon, text = "Link To", href = "#" }) {
   return (
-    <ListItem style={{paddingLeft: 0, paddingRight: 0}}>
+    <ListItem style={{padding: 0}}>
         <Link href={href} style={{width: "100%", textDecoration: "none", color: "inherit"}}>
         <ListItemButton>
             <ListItemIcon>
