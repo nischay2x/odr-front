@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import Layout from "./components/Layout.jsx";
 import Login, { ForgetPassword } from "./pages/login";
 import Profile from "./pages/profile";
-import Meetings from "./pages/meeting";
+import Meetings, { MeetingDetail, NewMeeting } from "./pages/meeting";
 
 import { getUser } from "./actions/auth";
 
@@ -67,7 +67,10 @@ function App() {
       <Route path="/" element={<RequireAuth loggedIn={isLoggedIn} />}>
         {/* <Route path="/" element={<Layout><Home /></Layout>}/> */}
         <Route path="profile" element={<Layout><Profile /></Layout>}/>
+        
         <Route path="meetings" element={<Layout><Meetings/></Layout>} />
+        <Route path="meetings/new" element={<Layout><NewMeeting/></Layout>} />
+        <Route path="meetings/:id" element={<Layout><MeetingDetail/></Layout>} />
         {/* <Route path="projects/:id" element={<Layout><WorkerProject/></Layout>} /> */}
       </Route>
 

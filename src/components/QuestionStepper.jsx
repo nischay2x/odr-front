@@ -15,19 +15,19 @@ const steps = [
     multiple: true,
     id: 1,
     options: ["1", "2", "4"],
-    question: "Eko din eko din hamar para ?"
+    question: "Years of experience ?"
   },
   {
     multiple: false, 
     id: 2,
     options: ["1", "2", "4"],
-    question: "Eko din eko din hamar para ?"
+    question: "Years of experience ?"
   },
   {
     multiple: false, 
     id: 3,
     options: ["No", "Yes"],
-    question: "Eko din eko din hamar para ?"
+    question: "Years of experience ?"
   },
 ];
 
